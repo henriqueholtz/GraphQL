@@ -1,4 +1,12 @@
 https://www.youtube.com/watch?v=UPXy76mnZYA&list=PLK5FPzMuRKlyeZYiJNA54j4lpfxHGlz0j&index=3
 
 
-npm init -y
+"npm init -y"
+"npm i -D nodemon"
+"npm i graphql apollo-server"
+
+Add -> "start": "nodemon" em scripts de package.json
+
+command to start: "npm start"
+
+create index.js
