@@ -15,11 +15,11 @@ const db = {
     profiles: [
         {
             id: 1,
-            description: "Perfil 1"
+            description: "ADMIN"
         },
         {
             id: 2,
-            description: "Profile 2"
+            description: "NORMAL"
         }
     ],
     users: [
@@ -62,10 +62,15 @@ const db = {
 };
 
 const typeDefs = gql`
-    
+    enum ProfileType {
+        ADMIN
+        NORMAL
+    }
+
+
     type Profile {
         id: Int,
-        description: String
+        description: ProfileType
     }
 
     type Product {
