@@ -1,10 +1,14 @@
 const {  ApolloServer } = require("apollo-server");
-const {typeDefs, resolvers} = require('./src/GraphQL')
+const graphql = require('./src/GraphQL')
 
 
 const server = new ApolloServer({
-    typeDefs,
-    resolvers
+    ...graphql,
+    formatError: (err) => {
+        if(err.message.startsWith("Duplicate user")) {
+            return new Error(err.message)
+        }
+    }
 });
 
 server.listen().then(({url}) => console.log(url)); 

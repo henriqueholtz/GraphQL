@@ -35,6 +35,13 @@ module.exports = {
     },
     Mutation: {
         createUser(_, args) {
+            const {name} = args;
+
+            const existsUser = db.users.some(u => u.name === name);
+            if (existsUser) {
+                throw new Error(`Duplicate user: ${name}`);
+            }
+
             const newUser = {
                 ...args,
                 id: generateID(db.users),
