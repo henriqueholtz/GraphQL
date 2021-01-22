@@ -9,11 +9,18 @@ type User {
   profile_id: Int
 }
 
+input UserInput {
+  salary: Float
+  name: String
+  phone: String
+}
+
 type Query {
   user(id: Int, name: String): User
   users: [User!]!
 }
 
 type Mutation {
-  createUser(name: String, phone: String, salary: Float): User
+  createUser(data: UserInput): User!
+  updateUser(id: Int!, data: UserInput): User!
 }
