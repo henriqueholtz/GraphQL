@@ -1,0 +1,10 @@
+type Product {
+  id: ID
+  name: String
+  value: Float
+}
+
+type Query {
+  product(id: Int, name: String): Product
+  products: [Product!]!
+}

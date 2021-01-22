@@ -10,3 +10,16 @@ Add -> "start": "nodemon" em scripts de package.json
 command to start: "npm start"
 
 create index.js
+
+npm i graphql-tools (para separar em arquivos etc)
+
+/*
+Default port: 4000
+
+* Scalar Types
+* - Int
+* - Float
+* - String
+* - Boolean
+* - ID
+*/
