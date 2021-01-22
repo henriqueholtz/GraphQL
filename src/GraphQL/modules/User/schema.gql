@@ -6,9 +6,14 @@ type User {
   id: ID
   phone: String
   profile: Profile
+  profile_id: Int
 }
 
 type Query {
   user(id: Int, name: String): User
   users: [User!]!
+}
+
+type Mutation {
+  createUser(name: String, phone: String, salary: Float): User
 }

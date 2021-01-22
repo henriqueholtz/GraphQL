@@ -1,5 +1,17 @@
 const db = require('../../../db')
 
+function generateID(list) {
+    let newId;
+    let last = list[list.length -1];
+    if (!last) {
+        newId = 0;
+    }
+    else {
+        newId = last.id
+    }
+    return ++newId;
+}
+
 module.exports = {
     User: {
         phone(obj) {
@@ -20,5 +32,17 @@ module.exports = {
         users() {
             return db.users;
         },
+    },
+    Mutation: {
+        createUser(_, args) {
+            const newUser = {
+                ...args,
+                id: generateID(db.users),
+                profile_id: 2
+            }
+
+            db.users.push(newUser)
+            return newUser
+        }
     }
 }
